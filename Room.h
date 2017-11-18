@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include "rapidxml.hpp"
 
 using namespace rapidxml;
@@ -22,11 +23,16 @@ public:
 	string status;
 	string type;
 	string description;
-	vector<string> border;
+	map<string, string> borders;
+	map<string, string> containers;
+	map<string, string> items;
+	map<string, string> creatures;
+
+	/*vector<string> border;
 	vector<string> container;
 	vector<string> item;
 	vector<string> creature;
-	vector<string> trigger;
+	vector<string> trigger;*/
 
 	Room (xml_node<>* name);
 	virtual ~Room();
