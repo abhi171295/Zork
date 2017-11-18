@@ -14,8 +14,6 @@ using namespace std;
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	Room r;
-	r.name = "Forest";
-	cout << r.name << endl;
+
 	return 0;
 }
