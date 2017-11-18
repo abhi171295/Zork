@@ -8,12 +8,14 @@
 
 #include <iostream>
 #include "Room.h"
+#include "runGame.h"
 #include "rapidxml.hpp"
 using namespace std;
 
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-
+	cout << "!!!Hello World!!!" << endl;
+	runGame* g = new runGame();
+	g->SetupGame("sample.txt.xml");
 	return 0;
 }

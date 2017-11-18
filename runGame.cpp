@@ -37,9 +37,9 @@ bool runGame::SetupGame(std::string fileName){
 		return false;
  	}
 
-
+	cout << "We Here" << endl;
 	xml_document<> doc;
-	xml_node<> * root;
+	//xml_node<> * root;
 
 	std::vector<char> buffer((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
 	buffer.push_back('\0');
