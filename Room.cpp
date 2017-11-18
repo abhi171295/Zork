@@ -33,6 +33,11 @@ void Room::createRoom(xml_node<>* roomNode) {
 		if (name == "status") {
 			this -> name = value;
 		}
-
+		if (name == "type") {
+			this -> name = value;
+		}
+		if (name == "description") {
+			this -> name = value;
+		}
 	}
 }
