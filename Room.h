@@ -28,6 +28,7 @@ public:
 	map<string, string> items;
 	map<string, string> creatures;
 
+	//Test line to check git push
 	/*vector<string> border;
 	vector<string> container;
 	vector<string> item;
