@@ -14,13 +14,10 @@ using namespace std;
 
 
 int main() {
-<<<<<<< HEAD
+
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
-=======
-	cout << "!!!Hello World!!!" << endl;
 	runGame* g = new runGame();
 	g->SetupGame("sample.txt.xml");
->>>>>>> 7b3a4635c1aa21a2d8435d0b681b1f385773de5c
 	return 0;
 }
