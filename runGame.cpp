@@ -58,7 +58,10 @@ bool runGame::SetupGame(std::string fileName){
 
 	while(root != nullptr){
 		if (string(root->name()) == "room"){
-			cout << root->name() << endl;
+			//cout << root->name() << endl;
+			Room* room = new Room(root->first_node());
+			rooms[room->name] = room;
+			cout << " runGame:" << root->first_node()->value() <<endl;
 		}
 		else if (string(root->name()) == "item"){
 			cout << root->name() << endl;

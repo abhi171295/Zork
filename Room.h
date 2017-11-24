@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 #include "rapidxml.hpp"
 #include "Border.h"
 #include "Container.h"
@@ -38,7 +39,6 @@ public:
 	Room (xml_node<>* name);
 	virtual ~Room();
 
-	void createRoom(xml_node<>*);
 	//void createBorder(xml_node<>*);
 };
 

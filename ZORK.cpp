@@ -7,7 +7,7 @@
 //============================================================================
 
 #include <iostream>
-#include "Room.h"
+//#include "Room.h"
 #include "runGame.h"
 #include "rapidxml.hpp"
 using namespace std;
@@ -19,5 +19,11 @@ int main() {
 
 	runGame* g = new runGame();
 	g->run("sample.txt.xml");
+
+	map<string,Room*> myRoom = g->rooms;
+	map<string,Border*> myBorder = g->rooms["MainCavern"]->borders;
+	cout << "HERE" << endl;
+	cout << myRoom["MainCavern"]->description << endl;
+	cout << myBorder["Entrance"]->direction << endl;
 	return 0;
 }

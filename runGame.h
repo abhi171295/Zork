@@ -8,6 +8,8 @@
 #ifndef RUNGAME_H_
 #define RUNGAME_H_
 #include "rapidxml.hpp"
+#include "Room.h"
+#include <map>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -18,6 +20,8 @@ using namespace std;
 
 class runGame {
 public:
+	map<string, Room*> rooms;
+
 	runGame();
 	virtual ~runGame();
 	bool status;
