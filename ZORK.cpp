@@ -18,6 +18,6 @@ int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
 	runGame* g = new runGame();
-	g->SetupGame("sample.txt.xml");
+	g->run("sample.txt.xml");
 	return 0;
 }

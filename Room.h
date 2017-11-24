@@ -12,6 +12,11 @@
 #include <vector>
 #include <map>
 #include "rapidxml.hpp"
+#include "Border.h"
+#include "Container.h"
+#include "Item.h"
+#include "Creature.h"
+#include "Trigger.h"
 
 using namespace rapidxml;
 using namespace std;
@@ -23,24 +28,18 @@ public:
 	string status;
 	string type;
 	string description;
-	map<string, string> borders;
-	map<string, string> containers;
-	map<string, string> items;
-	map<string, string> creatures;
+	map<string, Border*> borders;
+	map<string, Container*> containers;
+	map<string, Item*> items;
+	map<string, Creature*> creatures;
+	vector<Trigger*> triggers;
 
-	//Test line to check git push
-	/*vector<string> border;
-	vector<string> container;
-	vector<string> item;
-	vector<string> creature;
-	vector<string> trigger;*/
 
 	Room (xml_node<>* name);
 	virtual ~Room();
 
-private:
 	void createRoom(xml_node<>*);
-	void createBorder(xml_node<>*);
+	//void createBorder(xml_node<>*);
 };
 
 #endif /* ROOM_H_ */

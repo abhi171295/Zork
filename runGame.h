@@ -24,6 +24,7 @@ public:
 	bool SetupGame(std::string);
 	bool getStatus();
 	void setStatus(bool);
+	void run(string filename);
 };
 
 #endif /* RUNGAME_H_ */

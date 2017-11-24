@@ -32,16 +32,53 @@ bool runGame::SetupGame(std::string fileName){
 	std::ifstream file(fileName);
 
 	if(!(file.is_open())){
-		cout << "Cannot open file!" << endl;
 		setStatus(false);
+		cout << "File cannot open!!" << endl;
 		return false;
  	}
 
-	cout << "We Here" << endl;
 	xml_document<> doc;
-	//xml_node<> * root;
+	xml_node<> * root_node;
 
 	std::vector<char> buffer((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
 	buffer.push_back('\0');
+	doc.parse<0>(&buffer[0]);
+
+	// Find root node
+	root_node = doc.first_node();
+
+	if (root_node == nullptr){
+		setStatus(false);
+	} else {
+		setStatus(true);
+	}
+
+	xml_node<> * root;
+	root = root_node->first_node();
+
+	while(root != nullptr){
+		if (string(root->name()) == "room"){
+			cout << root->name() << endl;
+		}
+		else if (string(root->name()) == "item"){
+			cout << root->name() << endl;
+		}
+		else if (string(root->name()) == "container"){
+			cout << root->name() << endl;
+		}
+		else if (string(root->name()) == "creature"){
+			cout << root->name() << endl;
+		}
+		root = root->next_sibling();
+	}
+
 	return getStatus();
+}
+
+void runGame::run(std::string fileName){
+	bool setup = SetupGame(fileName);
+	if (setup == false){
+		return;
+	}
+
 }

@@ -39,9 +39,9 @@ void Room::createRoom(xml_node<>* roomNode) {
 		if (name == "description") {
 			this -> name = value;
 		}
-		if (name == "border") {
-			createBorder(roomNode);
-		}
+		//if (name == "border") {
+		//	createBorder(roomNode);
+		//}
 		if (name == "container") {
 			this -> containers[value] = value;
 		}

@@ -23,7 +23,7 @@ public:
 	string status;
 	string description;
 	string writing;
-	string turn_on
+	string turn_on;
 	vector<string> border;
 	vector<string> container;
 	vector<string> item;
