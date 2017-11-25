@@ -51,12 +51,16 @@ void Condition::SetupStatus(xml_node<> * root){
 	xml_node<>* root_node;
 	root_node = root->first_node();
 	while (root_node != nullptr){
+		//cout << "in SetupStatus: " << string(root_node->name()) << endl;
 		if (string(root_node->name()) == "status"){
 			this->status = root_node->value();
+			//cout << root_node->value() << endl;
 		}
 		else if (string(root_node->name()) == "object"){
 			this->object = root_node->value();
 		}
 		root_node = root_node->next_sibling();
 	}
+	//cout << "in SetupStatus: " <<this->object << endl;
+	//cout << "in SetupStatus: " << this->status << endl;
 }

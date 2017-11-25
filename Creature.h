@@ -29,7 +29,7 @@ public:
 	map<string,string> vulnerabilities;
 	Attack * attack;
 	vector<Trigger*> triggers;
-	Creature();
+	Creature(xml_node<>*);
 	virtual ~Creature();
 };
 

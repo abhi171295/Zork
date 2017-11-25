@@ -74,8 +74,8 @@ bool runGame::SetupGame(std::string fileName){
 			//cout << root->name() << endl;
 		}
 		else if (string(root->name()) == "creature"){
-			Creature* creature = new Creature();//root->first_node());
-			this->creatures["jher"] = creature; //[creature->name] creature;
+			Creature* creature = new Creature(root->first_node());//root->first_node());
+			this->creatures[creature->name] = creature; //[creature->name] creature;
 		}
 		root = root->next_sibling();
 	}

@@ -24,10 +24,12 @@ int main() {
 	map<string,Border*> myBorder = g->rooms["MainCavern"]->borders;
 	map<string,Item*> myItem = g->items;
 	map<string,Container*> myContainer = g->containers;
+	Creature* myCreature = g->creatures["gnome"];
 	cout << "HERE" << endl;
 	cout << myRoom["MainCavern"]->triggers.front()->conditions.front()->object << endl;
 	cout << myItem["torch"]->turn_on->action << endl;
 	cout << myContainer["lock"]->accept.front() << endl;
+	cout << "Do I exist? " << myCreature->attack->conditions.front()->object << endl;
 	//cout << myBorder["Entrance"]->triggers->front()->print << endl;
 	return 0;
 }
