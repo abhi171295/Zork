@@ -10,6 +10,8 @@
 #include "rapidxml.hpp"
 #include "Room.h"
 #include "Item.h"
+#include "Container.h"
+#include "Creature.h"
 #include <map>
 #include <iostream>
 #include <fstream>
@@ -23,6 +25,8 @@ class runGame {
 public:
 	map<string, Room*> rooms;
 	map<string, Item*> items;
+	map<string, Container*> containers;
+	map<string, Creature*> creatures;
 	runGame();
 	virtual ~runGame();
 	bool status;

@@ -60,19 +60,22 @@ bool runGame::SetupGame(std::string fileName){
 		if (string(root->name()) == "room"){
 			//cout << root->name() << endl;
 			Room* room = new Room(root->first_node());
-			rooms[room->name] = room;
+			this->rooms[room->name] = room;
 			//cout << " runGame:" << root->first_node()->value() <<endl;
 		}
 		else if (string(root->name()) == "item"){
 			//cout << root->name() << endl;
 			Item* item = new Item(root->first_node());
-			items[item->name] = item;
+			this->items[item->name] = item;
 		}
 		else if (string(root->name()) == "container"){
-			cout << root->name() << endl;
+			Container* container = new Container(root->first_node());
+			this->containers[container->name] = container;
+			//cout << root->name() << endl;
 		}
 		else if (string(root->name()) == "creature"){
-			cout << root->name() << endl;
+			Creature* creature = new Creature();//root->first_node());
+			this->creatures["jher"] = creature; //[creature->name] creature;
 		}
 		root = root->next_sibling();
 	}

@@ -15,6 +15,7 @@
 #define CONTAINER_H_
 #include <string>
 #include <vector>
+#include <map>
 #include "Item.h"
 #include "Trigger.h"
 #include "rapidxml.hpp"
@@ -30,7 +31,7 @@ public:
 	vector<string> accept;
 	vector<Trigger *> triggers;
 	map<string, Item *> items;
-	Container();
+	Container(xml_node<>*);
 	virtual ~Container();
 };
 
