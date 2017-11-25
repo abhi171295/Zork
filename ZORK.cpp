@@ -22,8 +22,10 @@ int main() {
 
 	map<string,Room*> myRoom = g->rooms;
 	map<string,Border*> myBorder = g->rooms["MainCavern"]->borders;
+	map<string,Item*> myItem = g->items;
 	cout << "HERE" << endl;
-	cout << myRoom["MainCavern"]->description << endl;
-	cout << myBorder["Entrance"]->direction << endl;
+	cout << myRoom["MainCavern"]->triggers.front()->conditions.front()->object << endl;
+	cout << myItem["torch"]->turn_on->action << endl;
+	//cout << myBorder["Entrance"]->triggers->front()->print << endl;
 	return 0;
 }

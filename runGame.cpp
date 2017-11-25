@@ -61,10 +61,12 @@ bool runGame::SetupGame(std::string fileName){
 			//cout << root->name() << endl;
 			Room* room = new Room(root->first_node());
 			rooms[room->name] = room;
-			cout << " runGame:" << root->first_node()->value() <<endl;
+			//cout << " runGame:" << root->first_node()->value() <<endl;
 		}
 		else if (string(root->name()) == "item"){
-			cout << root->name() << endl;
+			//cout << root->name() << endl;
+			Item* item = new Item(root->first_node());
+			items[item->name] = item;
 		}
 		else if (string(root->name()) == "container"){
 			cout << root->name() << endl;

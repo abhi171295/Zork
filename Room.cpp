@@ -47,7 +47,8 @@ Room::Room(xml_node<>* roomName) {
 			cout << "CREATURE" << endl;
 		}
 		else if (string(roomNode->name()) == "trigger"){
-			cout << "TRIGGER" << endl;
+			Trigger* trigger = new Trigger(roomNode->first_node());
+			triggers.push_back(trigger);
 		}
 		roomNode = roomNode->next_sibling();
 	}

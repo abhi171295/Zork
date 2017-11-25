@@ -9,6 +9,7 @@
 #define RUNGAME_H_
 #include "rapidxml.hpp"
 #include "Room.h"
+#include "Item.h"
 #include <map>
 #include <iostream>
 #include <fstream>
@@ -21,7 +22,7 @@ using namespace std;
 class runGame {
 public:
 	map<string, Room*> rooms;
-
+	map<string, Item*> items;
 	runGame();
 	virtual ~runGame();
 	bool status;

@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 #include "rapidxml.hpp"
+#include "Trigger.h"
+#include "TurnOn.h"
 
 using namespace rapidxml;
 using namespace std;
@@ -23,14 +25,10 @@ public:
 	string status;
 	string description;
 	string writing;
-	string turn_on;
-	vector<string> border;
-	vector<string> container;
-	vector<string> item;
-	vector<string> creature;
-	vector<string> trigger;
+	TurnOn * turn_on;
+	vector<Trigger *> triggers;
 
-	Item();
+	Item(xml_node<> *);
 	virtual ~Item();
 };
 

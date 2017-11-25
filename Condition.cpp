@@ -7,11 +7,56 @@
 
 #include "Condition.h"
 
-Condition::Condition() {
-	// TODO Auto-generated constructor stub
+Condition::Condition(xml_node<>* root) {
+	this->type_has = false;
+	this->type_status = false;
+	xml_node<>* root_node;
+	root_node = root->first_node();
+	while (root_node != nullptr){
+		if (string(root_node->name()) == "has"){
+			this->type_has = true;
+			SetupHas(root);
+		}
+		else if (string(root_node->name()) == "status"){
+			this->type_status = true;
+			SetupStatus(root);
+		}
+		root_node = root_node->next_sibling();
+	}
 
 }
 
 Condition::~Condition() {
 	// TODO Auto-generated destructor stub
+}
+
+void Condition::SetupHas(xml_node<> * root){
+	xml_node<>* root_node;
+	root_node = root->first_node();
+	while (root_node != nullptr){
+		if (string(root_node->name()) == "has"){
+			this->has = root_node->value();
+		}
+		else if (string(root_node->name()) == "object"){
+			this->object = root_node->value();
+		}
+		else if (string(root_node->name()) == "owner"){
+			this->owner = root_node->value();
+		}
+		root_node = root_node->next_sibling();
+	}
+}
+
+void Condition::SetupStatus(xml_node<> * root){
+	xml_node<>* root_node;
+	root_node = root->first_node();
+	while (root_node != nullptr){
+		if (string(root_node->name()) == "status"){
+			this->status = root_node->value();
+		}
+		else if (string(root_node->name()) == "object"){
+			this->object = root_node->value();
+		}
+		root_node = root_node->next_sibling();
+	}
 }

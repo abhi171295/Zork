@@ -7,21 +7,21 @@
 
 #include "Trigger.h"
 
-Trigger::Trigger() {
+Trigger::Trigger(xml_node<>* root) {
 	// TODO Auto-generated constructor stub
 	this->type = "single";
 
 	while(root != nullptr){
-		if (string(root->name) == "command"){
+		if (string(root->name()) == "command"){
 			this-> command = root->value();
-		} else if (string(root->name) == "action"){
+		} else if (string(root->name()) == "action"){
 			action.push_back(root->value());
-		} else if (string(root->name) == "type"){
+		} else if (string(root->name()) == "type"){
 			this-> type = root->value();
-		} else if (string(root->name) == "print"){
+		} else if (string(root->name()) == "print"){
 			this->print = root->value();
-		} else if (string(root->name) == "condition"){
-			Condition* condition = new Condition(root->first_node());
+		} else if (string(root->name()) == "condition"){
+			Condition* condition = new Condition(root);//->first_node());
 			conditions.push_back(condition);
 		}
 		root = root->next_sibling();
