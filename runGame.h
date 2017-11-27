@@ -37,7 +37,6 @@ public:
 	bool getStatus();
 	void setStatus(bool);
 	void run(string filename);
-	void SetupRoom(string filename);
 
 };
 

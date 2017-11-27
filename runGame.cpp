@@ -117,9 +117,15 @@ void runGame::run(std::string fileName){
 				it->second = this->creatures[creatureName];
 			}
 		}
-		/*for (map<string,Room*>::iterator it = rooms.begin(); it!= rooms.end(); it++){
-
-		}*/
 	}
 
+	for (map<string,Container*>::iterator it = containers.begin(); it!= containers.end(); it++){
+		Container* containNode;
+		containNode = it->second;
+		if (! containNode->items.empty()){
+			for (map<string,Item*>::iterator it = containNode->items.begin(); it!= containNode->items.end(); it++){
+				it->second = this->items[it->first];
+			}
+		}
+	}
 }
