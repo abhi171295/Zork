@@ -53,7 +53,7 @@ Room::Room(xml_node<>* roomName) {
 			//Creature* creature = new Creature(roomNode);
 			//this->creatures[creature->name] = creature;
 			this->creatures[roomNode->value()] = nullptr;
-			cout << "CREATURE: " << roomNode->value() << endl; //PROBLEM HERE??
+			//cout << "CREATURE: " << roomNode->value() << endl; //PROBLEM HERE??
 		}
 		else if (string(roomNode->name()) == "trigger"){
 			Trigger* trigger = new Trigger(roomNode->first_node());

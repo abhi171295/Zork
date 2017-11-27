@@ -15,8 +15,6 @@ using namespace std;
 
 int main() {
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-
 	runGame* g = new runGame();
 	g->run("sample.txt.xml");
 
@@ -25,7 +23,6 @@ int main() {
 	map<string,Item*> myItem = g->items;
 	map<string,Container*> myContainer = g->containers;
 	//Creature* myCreature = g->creatures["gnome"];
-	cout << "HERE" << endl;
 	cout << myRoom["MainCavern"]->triggers.front()->conditions.front()->object << endl;
 	cout << myRoom["MainCavern"]->creatures["gnome"]->name << endl;
 	//cout << myItem["torch"]->turn_on->action << endl;

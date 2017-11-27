@@ -89,4 +89,37 @@ void runGame::run(std::string fileName){
 		return;
 	}
 
+	for (map<string,Room*>::iterator it = rooms.begin(); it!= rooms.end(); it++){
+		//cout << it->second->name << endl;
+		Room* roomNode;
+		roomNode = it->second;
+		if(! roomNode->items.empty()){
+			for (map<string,Item*>::iterator it = roomNode->items.begin(); it!= roomNode->items.end(); it++){
+				string itemName;
+				itemName = it->first;
+				it->second = this->items[itemName];
+			}
+		}
+		if(! roomNode->containers.empty()){
+
+			for (map<string,Container*>::iterator it = roomNode->containers.begin(); it!= roomNode->containers.end(); it++){
+				string containerName;
+				containerName = it->first;
+				it->second = this->containers[containerName];
+				//cout << it->second->name << endl;
+			}
+		}
+		if(! roomNode->creatures.empty()){
+
+			for (map<string,Creature*>::iterator it = roomNode->creatures.begin(); it!= roomNode->creatures.end(); it++){
+				string creatureName;
+				creatureName = it->first;
+				it->second = this->creatures[creatureName];
+			}
+		}
+		/*for (map<string,Room*>::iterator it = rooms.begin(); it!= rooms.end(); it++){
+
+		}*/
+	}
+
 }

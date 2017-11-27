@@ -21,9 +21,11 @@ Container::Container(xml_node<>* root) {
 			this->accept.push_back(root->value());
 		} else if (string(root->name()) == "trigger"){
 			//this -> name = root->value();
-			cout << "TRIGGER in Container" << endl;
+			Trigger* trigger = new Trigger(root->first_node());
+			this->triggers.push_back(trigger);
 		} else if (string(root->name()) == "item"){
-			cout << "ITEM in Container" << endl;
+			this->items[root->value()] = nullptr;
+			//cout << root->value() << endl;
 		}
 		root = root->next_sibling();
 	}

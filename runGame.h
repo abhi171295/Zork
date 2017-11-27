@@ -27,13 +27,18 @@ public:
 	map<string, Item*> items;
 	map<string, Container*> containers;
 	map<string, Creature*> creatures;
+	string WhereAmI;
+	bool status;
+
 	runGame();
 	virtual ~runGame();
-	bool status;
+
 	bool SetupGame(std::string);
 	bool getStatus();
 	void setStatus(bool);
 	void run(string filename);
+	void SetupRoom(string filename);
+
 };
 
 #endif /* RUNGAME_H_ */
