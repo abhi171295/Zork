@@ -18,10 +18,11 @@ Item::Item(xml_node<>* root) {
 		} else if (string(root->name()) == "status"){
 			this->status = root->value();
 		} else if (string(root->name()) == "turnon"){
-			//cout<<"TURN UP NIGGAH"<<endl;
 			this -> turn_on = new TurnOn(root->first_node());
 		} else if (string(root->name()) == "trigger"){
-			cout << "TRIGGER in ITEM" << endl;
+			//cout << "TRIGGER in ITEM" << endl;
+			Trigger* trigger = new Trigger(root->first_node());
+			this->triggers.push_back(trigger);
 		}
 		root = root->next_sibling();
 	}

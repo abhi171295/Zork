@@ -34,17 +34,26 @@ Room::Room(xml_node<>* roomName) {
 			rooms[room->name] = room;
 			cout << " runGame:" << root->first_node()->value() <<endl;*/
 			Border* border = new Border(roomNode->first_node());
-			borders[border->name] = border;
+			this->borders[border->name] = border;
 		}
 		else if (string(roomNode->name()) == "item"){
-			cout << "ITEM" << endl;
+			//Item* item = new Item(roomNode);
+			//this->items[item->name] = item;
+			this->items[roomNode->value()] = nullptr;
+			//cout << "ITEM" << endl;
 			//cout << roomNode->first_node()->name() << endl;
 		}
 		else if (string(roomNode->name()) == "container"){
-			cout << "CONTAINER" << endl;
+			//Container* container = new Container(roomNode);
+			//this->containers[container->name] = container;
+			this->containers[roomNode->value()] = nullptr;
+			//cout << "CONTAINER" << endl;
 		}
 		else if (string(roomNode->name()) == "creature"){
-			cout << "CREATURE" << endl;
+			//Creature* creature = new Creature(roomNode);
+			//this->creatures[creature->name] = creature;
+			this->creatures[roomNode->value()] = nullptr;
+			cout << "CREATURE: " << roomNode->value() << endl; //PROBLEM HERE??
 		}
 		else if (string(roomNode->name()) == "trigger"){
 			Trigger* trigger = new Trigger(roomNode->first_node());
