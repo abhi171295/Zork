@@ -23,8 +23,10 @@ int main() {
 	map<string,Item*> myItem = g->items;
 	map<string,Container*> myContainer = g->containers;
 	//Creature* myCreature = g->creatures["gnome"];
+	cout << "MAIN FUNCTION BELOW:" << endl;
 	cout << myRoom["MainCavern"]->triggers.front()->conditions.front()->object << endl;
 	cout << myRoom["MainCavern"]->creatures["gnome"]->name << endl;
+	cout << myContainer["chest"]->items["explosive"]->name << endl;
 	//cout << myItem["torch"]->turn_on->action << endl;
 	//cout << myContainer["lock"]->accept.front() << endl;
 	//cout << "Do I exist? " << myCreature->attack->conditions.front()->object << endl;
