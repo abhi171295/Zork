@@ -38,6 +38,7 @@ public:
 	void setStatus(bool);
 	void run(string filename);
 	void SetupRoom(string filename);
+	bool triggerCheck(string);
 
 };
 
