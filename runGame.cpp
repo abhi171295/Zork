@@ -319,6 +319,7 @@ void runGame::command(string command, bool userInput) {
 				exit = true;
 			}
 			else {
+				cout << "This is not an exit!" << endl;
 				exit = false;
 			}
 		}
@@ -408,3 +409,208 @@ void runGame::command(string command, bool userInput) {
 	}
 	return false;
 }*/
+/*void Game::direction(string dir){
+	Room* cRoom = rooms[this -> location];
+	map<string, Border*>::iterator it;
+
+	switch (dir) {
+	case "n":
+		it = cRoom->borders.find("north");
+		break;
+	case "s":
+		it = cRoom->borders.find("south");
+		break;
+	case "w":
+		it = cRoom->borders.find("west");
+		break;
+	case "e":
+		it = cRoom->borders.find("east");
+	}
+	*if (dir == "n"){
+		it = cRoom -> borders.find("north");
+	}
+	else if (dir == "s"){
+		it = cRoom -> borders.find("south");
+	}
+	else if (dir == "w"){
+		it = cRoom -> borders.find("west");
+	}
+	else if (dir == "e"){
+		it = cRoom -> borders.find("east");
+	}*
+
+	if (it == cRoom -> borders.end()){
+		cout << "Can't go that way." << endl;
+	}
+	else {
+		this -> location = it -> second -> name;
+		SetupRoom(location);
+		cout << rooms[location] -> description << endl;
+	}
+}*/
+/*void Game::findInventory(){
+	if (!inventory.empty()){
+		cout << "Inventory: ";
+		for (map<string, Item*>::iterator it = inventory.begin(); it != inventory.end(); it += 1) {
+			if (it == inventory.begin()) {
+				cout << it -> second -> name;
+			}
+			else {
+				cout << ", " << it -> second -> name;
+			}
+		}
+		cout << endl;
+	}
+	else {
+		cout << "Inventory: empty" << std::endl;
+	}
+}*/
+/*void Game::take(string command){
+	vector<string> com = splitCommand(command);
+	Room* cRoom = rooms[location];
+	Container* cContainer;
+
+	if (com.size() < 2){
+		cout << "To take an item, the command must be in the form of 'take (item)'." << endl;
+		return;
+	}
+
+	string item = com[1];
+}*/
+/*bool Game::read(string command){
+	vector<string> com = splitCommand(command);
+	if (com.size() < 2){
+		cout << "Error! The read command should have the following format: 'read (item)'" << endl;
+		return;
+	}
+	string item = com[1];
+
+	if (inventory.find(item) == inventory.end()) {
+		cout << "Error" << endl;
+	}
+	else {
+		if (inventory[item]->writing == "") {
+			cout << "Nothing written" << endl;
+		}
+		else {
+			cout << inventory[item]->writing << endl;
+		}
+	}
+}*/
+/*void Game::turnOn(string command){
+	vector<string> com = splitCommand(command);
+	if (com.size() < 3) {
+		cout << "Error! The turn on function command must have the following format: 'turn on (item)'" << endl;
+	}
+	//string item = com[2];
+	else if (inventory.find(com[2]) == inventory.end() || inventory[com[2]] -> turnon == nullptr || inventory[com[2]]->turnon->action == "") {
+		cout << "Error" << endl
+	}
+	else {
+		cout << "You turned on the " << com[2] << endl << inventory[com[2]]->turnon->print << endl;
+		executeCommand(inventory[com[2]]->turnon->action, false);
+	}
+}*/
+/*void Game::drop(string command){
+	vector<string> com = splitCommand(command);
+	if (com.size() < 2){
+		cout << "Error! The drop command should have the following format: 'drop (item)'" << endl;
+		return;
+	}
+	string item = com[1];
+
+	if (inventory.find(item) == inventory.end()) {
+		cout << "Error" << endl;
+	}
+	else {
+		rooms[location]->items[item] = inventory[item];
+		inventory.erase(item);
+		cout << item << " dropped" << endl;
+	}
+}*/
+/*void Game::attack(string command){
+	vector<string> com = splitCommand(command);
+
+	if(com.size() < 4){
+		cout << "Error! Attack command should be in the format: 'attack (creature) with (item)'" << endl;
+	}
+
+	//string creature = com[1];
+	//string item = com[3];
+
+	else if(inventory.find(com[3]) == inventory.end()){
+		cout << "Error" << endl;
+		//return;
+	}
+
+	//Creature is in game
+	else if(creatures.find(com[1]) != creatures.end()){
+		//Find vulnerability
+		if((creatures[com[1]]->vulnerability.find(com[3]) != creatures[com[1]]->vulnerability.end()) ||  (creatures[com[1]]->vulnerability.size() == 0)){
+			cout << "You assault " << com[1] << " with " << com[3] << "." << endl;
+
+			if(creatures[com[1]]->attack != nullptr){
+				//bool result = checkCondition(creatures[com[1]]->attack->conditions);
+
+				//Conditions met
+				if (checkCondition(creatures[com[1]]->attack->conditions)) {
+					cout << creatures[com[1]]->attack->print << endl;
+
+					for (int i = 0;  i < creatures[com[1]]->attack->actions.size(); i++){
+						if((creatures[com[1]]->attack->actions[i].find("Delete") != -1) && (creatures[com[1]]->attack->actions[i].find(creatures[com[1]]->name) != -1)){
+							executeCommand(creatures[com[1]]->attack->actions[i], false);
+							break;
+						}
+						else {
+							executeCommand(creatures[com[1]]->attack->actions[i], false);
+						}
+					}
+					checkTriggers("");
+					return;
+				}
+				else{
+					cout << "Error" << endl;
+				}
+			}
+
+		}
+		else
+			cout << "Error" << endl;
+	}
+	else {
+		cout << "Error" << endl;
+	}
+}*/
+
+// HELPER FUNCTIONS
+/*vector<string> Game::splitCommand(string command){
+	string buffer;
+	stringstream ss(command);
+
+	vector<string> words;
+
+	while (ss >> buffer) {
+		words.push_back(buffer);
+	}
+
+	return words;
+}*/
+/*bool Game::checkCondition(vector<Condition*> conditions){
+	if (conditions.empty()){
+		return true;
+	}
+
+	for (int i = 0; i < conditions.size(); i += 1){
+		if (checkHas(conditions[i])) {
+			if (!((hasOwner(conditions[i]) == 't' || hasOwner(conditions[i]) == 'n') && (hasStatus(conditions[i]) == 't' || hasStatus(conditions[i]) == 'n'))) {
+				result = false;
+			}
+		}
+		else {
+			if(hasOwner(conditions[i]) == 't' || hasStatus(conditions[i]) == 't'){
+				result = false;
+			}
+		}
+	}
+}*/
+
